@@ -124,7 +124,7 @@ function setup() {
 										col3 = color(255, 255, 255, 100),
 										col4 = color(0, 0, 0, 255),
 										underlineOrHighlight = "HIGHLIGHT",
-										pageLink = "index.html");
+										pageLink = "gameMusic.html");
 	links.theater = new content_rect(333*tw, 646*th, 
 										createVector(666*tw,40*th), 
 										"musical\ntheatre",
