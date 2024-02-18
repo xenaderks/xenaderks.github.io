@@ -1,0 +1,52 @@
+I'm trying to find a formula that'll let me know wether a given boid is on the right side of a line.
+
+What I need to know is:
+The x and y position of that boid
+1st point on line
+2nd point on line
+
+What I need to use is:
+A formula which draws the line 
+
+
+What we want to do is the following:
+if (formula(x position) > y position) {
+	dodge one way
+} else {
+	dodge the other way
+}
+
+------------------------------------------||
+A straight line follows this formula:
+y = ax + b
+
+y: height
+x: time
+a: steepness of line
+b: origin of line (y at x = 0)
+
+we can find a using this formula:
+a = deltaY/deltaX
+or in other words
+a = (y2-y1)/(x2-x1)
+
+We divide the difference in y by how long it took to get to that y.
+We do need to points along the line for this to work.
+
+so our formula becomes:
+y3 <? ((y2-y1)/(x2-x1))x3 + b
+
+where
+[x1,y1] = point1 on line
+[x2,y2] = point2 on line
+[x3,y3] = point to test (is it under the line?)
+b = height of origin
+
+and I'm fairly certain to figure out wether x3 is within range you do the same thing but the other way arounnd:
+x3 <? ((y2-y1)/(x2-x1))y3 + b
+
+although in this case b = the horizontal offset at y = 0
+
+----------------------------------------------||
+
+It works, I'm officially a genius!

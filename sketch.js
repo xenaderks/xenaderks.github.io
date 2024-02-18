@@ -31,6 +31,7 @@ let gameImage;
 let programmingImage;
 let artImage;
 let meImage;
+let miscImage;
 
 // D I S T A N C E S
 let w; let tw; let h; let th; let a;
@@ -45,7 +46,8 @@ let scrollDir = "DOWN";
 let canScroll = true;
 
 // return true if is supported // else return false
-let isTouch = 'touchstart' in document.documentElement;
+let isTouch = false;
+window.addEventListener("touchstart", (() => {isTouch = true}));
 
 // F O N T S + T E X T
 let titleFont;
@@ -56,18 +58,6 @@ let directionText = document.getElementById('direction');
 // B - U - I - L - T -----------------------------------
 // 		I - N
 // F - U - N - C - S -----------------------------------
-
-// FUNC PRELOAD
-function preload() {
-	titleFont = loadFont('fonts/BungeeOutline-Regular.ttf');
-	mainFont = loadFont('fonts/Montserrat-Regular.ttf');
-	theaterImage = loadImage('images/theater.jpg');
-	gameImage = loadImage('images/games_2.png');
-	programmingImage = loadImage('images/programming.png');
-	standalonesImage = loadImage('images/fanfare.jpg');
-	meImage = loadImage('images/me.jpg');
-}
-// END PRELOAD FUNC
 
 // FUNC MOUSEWHEEL
 function mouseWheel(e) {
@@ -93,6 +83,18 @@ function touchEnded() {
 	return(false); // prevents safari from throwing a fit.
 }
 
+// FUNC PRELOAD
+function preload() {
+	titleFont = loadFont('fonts/BungeeOutline-Regular.ttf');
+	mainFont = loadFont('fonts/Montserrat-Regular.ttf');
+	theaterImage = loadImage('images/theater.jpg');
+	gameImage = loadImage('images/games_2.png');
+	programmingImage = loadImage('images/programming.png');
+	standalonesImage = loadImage('images/fanfare.jpg');
+	meImage = loadImage('images/me.jpg');
+	miscImage = loadImage('images/golden_dragon.png');
+}
+// END PRELOAD FUNC
 
 // FUNC SETUP
 function setup() {
@@ -162,24 +164,14 @@ function setup() {
 	links.other_art = new content_rect(333*tw, 333*th, 
 										createVector(333*tw,333*th),
 										"other\nart",
-										true);
-	if (w > 500) {
-		metaBlocks.titlePage = new metaContainer(	1,
-													createVector(850*tw, 90*th),
-													createVector(75*tw, 600*th),
-													"DEMO REEL",
-													"MY WORK",
-													"ABOUT ME",
-													"CONTACT INFO");
-	} else {
-		metaBlocks.titlePage = new metaContainer(	2,
-													createVector(850*tw, 180*th),
-													createVector(75*tw, 600*th),
-													"DEMO REEL",
-													"MY WORK",
-													"ABOUT ME",
-													"CONTACT INFO");
-	}
+										true,
+										miscImage);
+	metaBlocks.titlePage = new metaContainer(	createVector(850*tw, 65*tw),
+												createVector(75*tw, 350*th),
+												"DEMO REEL",
+												"MY WORK",
+												"ABOUT ME",
+												"CONTACT INFO");
 }
 // END SETUP FUNC
 
@@ -218,10 +210,9 @@ function draw() {
 		case 2:
 			topText = "m y   w o r k";
 			bottomText = "m y   c o n t a c t - i n f o";
-			let aboutMeText = "Hi there! Welcome to my portfolio. I'm a 23-year-old music and technology student at the University for the arts in Utrecht, where I'll be graduating in juli. I have a passion for multidisciplinary projects, especially video games and theater, and use my skills in programming to supplement my skills in composition on musical performance.\n\n" +
-			"I specialize in slow, atmospheric music. I range between extreme calm and extreme tension, though ideally I keep my audience on the edge of their seats at all times! I'm as well versed in working together with acoustic musicians as I am with sampling, synths and virtual orchestration. Upon request I'll gladly adjust to a faster pace. I deeply enjoy writing involved beats which would required five hands to perform by a musician- here a computer does come in very handy!\n\n"+
-			"To me there's nothing more exciting than sitting with my team and discussing the next steps we're going to be taking in our project. If that conversation can be held in person, all the better.\n\n"+
-			"If you're reading this, hopefully that team will be yours.";
+			let aboutMeText = "Hi there! Welcome to my portfolio. I'm a 23-year-old music and technology student at the University for the arts in Utrecht, where I'll be graduating in may. I have a passion for multidisciplinary projects, especially video games and theatre, and use my skills in programming to supplement my skills in composition on musical performance.\n\n" +
+			"My specialty is in temperate, methodical music. I like odd time signatures and keys; ideally my audience is on the edge of their seats at all times! Arrangement isn't a major concern, as I'm as well versed in working together with acoustic musicians as I am with sampling, synths and virtual orchestration. Where a faster pace is required I don't struggle to adjust, though I tend to work a little slower in relation to my lack of experience.\n\n"+
+			"Where possible I prefer to work in a team, face to face- though most of my projects end up being more practically served by online cooperation. To me there's nothing more exciting than sitting with my team and discussing the next steps we're going to be taking in our project.";
 			if (w > 700){ // LANDSCAPE
 				text_preset(0); textSize(tw*70); strokeWeight(5);
 				text('about me', tw*270, th*150);
@@ -237,17 +228,25 @@ function draw() {
 			textAlign(CENTER, CENTER);
 			break;
 	}
+	
 	// VV Top + Bottom text
 	textAlign(CENTER, CENTER);
 	text_preset(3);
 	let instruction;
 	let upInstruction = "";
 	let downInstruction = "";
-	if (isTouch) { instruction = "s c r o l l   "; } else { instruction = "s w i p e   ";};
-	if (siteState != maxSiteState) { upInstruction = instruction + "u p   f o r   " + bottomText; }
-	if (siteState != 0) { downInstruction = instruction + "d o w n   f o r   " + topText; }
+	if (!isTouch) { instruction = "s c r o l l   "; } else { instruction = "s w i p e   "; }
+	if (siteState != maxSiteState) {
+		if (isTouch) { upInstruction = instruction + "u p   f o r   " + bottomText; }
+		else { upInstruction = instruction + "d o w n   f o r   " + bottomText; }
+	}
+	if (siteState != 0) { 
+		if (isTouch) { downInstruction = instruction + "d o w n   f o r   " + topText; }
+		else { downInstruction = instruction + "u p   f o r   " + topText; }
+	}
 	text(upInstruction, tw*500, th*967);
 	text(downInstruction, tw*500, th*15);
+	
 	// VV Manage Transitions VV
 	if (canScroll) { return }
 	switch (scrollDir) {
@@ -296,23 +295,12 @@ function windowResized() {
 										createVector(333*tw,333*th),
 										"other\nart",
 										true);
-	if (w > 500) {
-		metaBlocks.titlePage = new metaContainer(	1,
-													createVector(850*tw, 90*th),
-													createVector(75*tw, 600*th),
-													"DEMO REEL",
-													"MY WORK",
-													"ABOUT ME",
-													"CONTACT INFO");
-	} else {
-		metaBlocks.titlePage = new metaContainer(	2,
-													createVector(850*tw, 180*th),
-													createVector(75*tw, 600*th),
-													"DEMO REEL",
-													"MY WORK",
-													"ABOUT ME",
-													"CONTACT INFO");
-	}
+	metaBlocks.titlePage = new metaContainer(	createVector(850*tw, 90*th),
+												createVector(75*tw, 600*th),
+												"DEMO REEL",
+												"MY WORK",
+												"ABOUT ME",
+												"CONTACT INFO");
 }
 // END WINDOW RESIZED
 
@@ -350,24 +338,27 @@ function transitionTrigger(triggerValue, threshold = 40, stateSetter = 999) {
 
 // FUNC HITBOX CHECK
 function hitBoxCheck() {
-	if (siteState == 0) {
-		for (let key in metaBlocks) {
-			let r = metaBlocks[key].rects;
-			for (let keyception in r) {
-				if (r[keyception].testHover()) {
-					transitionTrigger(1, 0, metaBlocks[key].ssll[keyception]);
+	switch (siteState) {
+		case 0:
+			for (let key in metaBlocks) {
+				let r = metaBlocks[key].rects;
+				for (let keyception in r) {
+					if (r[keyception].testHover()) {
+						transitionTrigger(1, 0, metaBlocks[key].ssll[keyception]);
+						return(true);
+					}
+				}
+			}
+			break;
+		case 1:
+			for (let key in links) {
+				if (links[key].testHover() && links[key].url != "") {
+					let newPage = links[key].url;
+					window.open(newPage, "_blank");
 					return(true);
 				}
 			}
-		}
-	} else if (siteState == 1) {
-		for (let key in links) {
-			if (links[key].testHover() && links[key].url != "") {
-				let newPage = links[key].url;
-				window.open(newPage, "_blank");
-				return(true);
-			}
-		}
+			break;
 	}
 }
 // END HITBOX CHECK
@@ -590,8 +581,7 @@ class content_rect {
 
 // CLASS META CONTAINER
 class metaContainer {
-	constructor(lines,
-				metaDimensions,
+	constructor(metaDimensions,
 				metaPos,
 				rect1text = "", rect2text = "",
 				rect3text = "", rect4text = "",
@@ -601,7 +591,6 @@ class metaContainer {
 				col4 = color(0, 0, 0, 255),
 				underlineOrHighlight = 'UNDERLINE',
 				siteStatesLinksList = [3, 1, 2, 5]) {
-		this.lines = lines;
 		this.ssll = siteStatesLinksList;
 		this.dims = metaDimensions;
 		this.pos = metaPos;
@@ -624,17 +613,13 @@ class metaContainer {
 							textWidth(this.txt4) / this.totalTextWidth];
 		this.rects = [];
 		for (let i = 0; i < 4; i++) {
-			let o = createVector(0, 0); // o = x position offset.
-			for (let n = 0; n < i; n++) { 
-				o.x += this.proportions[i - n - 1] * this.dims.x;
-			}
-			if (i > Math.floor(4 / this.lines) - 1) {
-				o.y += this.dims.y / this.lines;
-			}
-			o.add(this.pos);
+			let o = 0; // o = x position offset.
+			for (let n = 0; n < i; n++) { o += this.proportions[i - n - 1] * this.dims.x }
+			let oVect = createVector(o, 0);
+			oVect.add(this.pos);
 			this.rects.push(new content_rect(	this.proportions[i] * this.dims.x,
 												this.dims.y,
-												o,
+												oVect,
 												this.texts[i],
 												false,
 												"",
@@ -645,21 +630,17 @@ class metaContainer {
 	}
 	place() {
 		for (let index in this.rects) {
-			let o = createVector(0, 0); // o = x position offset.
-			for (let n = 0; n < index; n++) { 
-				o.x += this.proportions[index - n - 1] * this.dims.x;
-			}
-			if (index > Math.floor(4 / this.lines) - 1) {
-				o.y += this.dims.y / this.lines;
-			}
-			o.add(this.pos);
+			let o = 0; // o = position relative to what rect it is.
+			for (let n = 0; n < index; n++) { o += this.proportions[index - n - 1] * this.dims.x }
+			let oVect = createVector(o, 0);
+			oVect.add(this.pos);
 			this.rects[index].mod = true;
-			this.rects[index].pos = o;
+			this.rects[index].pos = oVect;
 			this.rects[index].place();
 			if (index < 4) {
 				strokeWeight(5*tw);
-				line(o.x + this.proportions[index + 1] / 2, o.y,
-					o.x + this.proportions[index + 1] / 2, o.y + this.dims.y / 3);
+				line(oVect.x + this.proportions[index + 1] / 2, oVect.y,
+					oVect.x + this.proportions[index + 1] / 2, oVect.y + this.dims.y / 3);
 			}
 		}
 	}
