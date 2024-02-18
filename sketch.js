@@ -31,6 +31,7 @@ let gameImage;
 let programmingImage;
 let artImage;
 let meImage;
+let miscImage;
 
 // D I S T A N C E S
 let w; let tw; let h; let th; let a;
@@ -45,7 +46,8 @@ let scrollDir = "DOWN";
 let canScroll = true;
 
 // return true if is supported // else return false
-let isTouch = 'touchstart' in document.documentElement;
+let isTouch = false;
+window.addEventListener("touchstart", (() => {isTouch = true}));
 
 // F O N T S + T E X T
 let titleFont;
@@ -90,6 +92,7 @@ function preload() {
 	programmingImage = loadImage('images/programming.png');
 	standalonesImage = loadImage('images/fanfare.jpg');
 	meImage = loadImage('images/me.jpg');
+	miscImage = loadImage('images/golden_dragon.png');
 }
 // END PRELOAD FUNC
 
@@ -161,7 +164,8 @@ function setup() {
 	links.other_art = new content_rect(333*tw, 333*th, 
 										createVector(333*tw,333*th),
 										"other\nart",
-										true)
+										true,
+										miscImage);
 	metaBlocks.titlePage = new metaContainer(	createVector(850*tw, 65*tw),
 												createVector(75*tw, 350*th),
 												"DEMO REEL",
@@ -224,17 +228,25 @@ function draw() {
 			textAlign(CENTER, CENTER);
 			break;
 	}
+	
 	// VV Top + Bottom text
 	textAlign(CENTER, CENTER);
 	text_preset(3);
 	let instruction;
 	let upInstruction = "";
 	let downInstruction = "";
-	if (isTouch) { instruction = "s c r o l l   "; } else { instruction = "s w i p e   ";};
-	if (siteState != maxSiteState) { upInstruction = instruction + "u p   f o r   " + bottomText; }
-	if (siteState != 0) { downInstruction = instruction + "d o w n   f o r   " + topText; }
+	if (!isTouch) { instruction = "s c r o l l   "; } else { instruction = "s w i p e   "; }
+	if (siteState != maxSiteState) {
+		if (isTouch) { upInstruction = instruction + "u p   f o r   " + bottomText; }
+		else { upInstruction = instruction + "d o w n   f o r   " + bottomText; }
+	}
+	if (siteState != 0) { 
+		if (isTouch) { downInstruction = instruction + "d o w n   f o r   " + topText; }
+		else { downInstruction = instruction + "u p   f o r   " + topText; }
+	}
 	text(upInstruction, tw*500, th*967);
 	text(downInstruction, tw*500, th*15);
+	
 	// VV Manage Transitions VV
 	if (canScroll) { return }
 	switch (scrollDir) {
@@ -326,21 +338,27 @@ function transitionTrigger(triggerValue, threshold = 40, stateSetter = 999) {
 
 // FUNC HITBOX CHECK
 function hitBoxCheck() {
-	for (let key in metaBlocks) {
-		let r = metaBlocks[key].rects;
-		for (let keyception in r) {
-			if (r[keyception].testHover()) {
-				transitionTrigger(1, 0, metaBlocks[key].ssll[keyception]);
-				return(true);
+	switch (siteState) {
+		case 0:
+			for (let key in metaBlocks) {
+				let r = metaBlocks[key].rects;
+				for (let keyception in r) {
+					if (r[keyception].testHover()) {
+						transitionTrigger(1, 0, metaBlocks[key].ssll[keyception]);
+						return(true);
+					}
+				}
 			}
-		}
-	}
-	for (let key in links) {
-		if (links[key].testHover() && links[key].url != "") {
-			let newPage = links[key].url;
-			window.open(newPage, "_blank");
-			return(true);
-		}
+			break;
+		case 1:
+			for (let key in links) {
+				if (links[key].testHover() && links[key].url != "") {
+					let newPage = links[key].url;
+					window.open(newPage, "_blank");
+					return(true);
+				}
+			}
+			break;
 	}
 }
 // END HITBOX CHECK
