@@ -4,43 +4,41 @@
 // S C E N E - V A R S
 // states:
 //	0: name
-//	1: menu
-//	2: about me
-//	3: game music
-//	4: theater
-//	5: standalones
-//	6: game design + programming
-//	7: other art (non-music)
+//	1: my work
+//  2: about me
+//  3: contact info
+//  4: demo reel
 let siteState = 0;
 let maxSiteState = 3;
-let doStates = true; // when presenting content I want to temporarily stop the state machine.
-let links = {}; // used for menu scene -> check setup
-let metaBlocks = {};
+let doStates = true; 	// outdated, but possibly useful in future
+let links 		= {}; 		// used for menu scene 		-> check setup
+let socials 	= {};		// used for contact info 	-> check setup
+let metaBlocks 	= {};	// defined in setup
 let mouseContext = false;
-let startX, startY;
-let touchStartTime;
-let topText = "";
-let bottomText = "";
+let startX, startY;		// defined in setup
+let touchStartTime;		// defined in setup
+let topText = "";		// defined in setup
+let bottomText = "";	// defined in setup
 
 // C O L O R S
-let backCol;
-let main_pink;
-let theaterImage;
-let standalonesImage;
-let gameImage;
-let programmingImage;
-let artImage;
-let meImage;
-let miscImage;
+let backCol;			// defined in setup
+let main_pink;			// defined in setup
+let theaterImage;		// defined in setup
+let standalonesImage;	// defined in setup
+let gameImage;			// defined in setup
+let programmingImage;	// defined in setup
+let artImage;			// defined in setup
+let meImage;			// defined in setup
+let miscImage;			// defined in setup
 
 // D I S T A N C E S
 let w; let tw; let h; let th; let a;
 
 // T I M E R S + T R A N S I T I O N S
-let timers = {};
-let transitions = {};
+let timers = {}; 		// defined in setup
+let transitions = {}; 	// defined in setup
 let scrollWaitTime = 2000;
-let scrollTimer;
+let scrollTimer; 		// defined in setup
 let startTimer = 0;
 let scrollDir = "DOWN";
 let canScroll = true;
@@ -50,8 +48,8 @@ let isTouch = false;
 window.addEventListener("touchstart", (() => {isTouch = true}));
 
 // F O N T S + T E X T
-let titleFont;
-let mainFont;
+let titleFont; 			// defined in setup
+let mainFont; 			// defined in setup
 let openingTextOpacity = 255;
 let directionText = document.getElementById('direction');
 
@@ -112,7 +110,6 @@ function setup() {
 	h = windowHeight;
 	th = h / 1000;
 	a = w / h;
-	textAlign(CENTER, CENTER);
 	imageMode(CORNER);
 	backCol = color(0,0,0,255);
 	main_pink = color(255, 155, 155, 255);
@@ -166,6 +163,16 @@ function setup() {
 										"other\nart",
 										true,
 										miscImage);
+	socials.linkedIn = new content_rect(tw*500, th*100,
+										createVector(tw*500,th*450),
+										true,
+										'linkedin.com/in/xena-derks-49a183208/',
+										col1 = color(0, 0, 0, 0),
+										col2 = color(255, 255, 255, 255),
+										col3 = color(255, 255, 255, 100),
+										col4 = color(0, 0, 0, 255),
+										underlineOrHighlight = "UNDERLINE",
+										pageLink = "https://www.linkedin.com/in/xena-derks-49a183208/");
 	metaBlocks.titlePage = new metaContainer(	createVector(850*tw, 65*tw),
 												createVector(75*tw, 350*th),
 												"DEMO REEL",
@@ -189,6 +196,9 @@ function draw() {
 	// VV Manage Scenes VV
 	switch (siteState) {
 		case 0:
+			// text_preset(4);
+			// let introLine = 'c o m p o s i t i o n\nt  e  c  h  n  o  l  o  g  y\ne x p e r i m e n t a t i o n';
+			// text(introLine, tw*500, th*100);
 			text_preset(0); text('XENA', tw*500, th*400);
 			topText = "";
 			bottomText = "m y   w o r k";
@@ -210,9 +220,10 @@ function draw() {
 		case 2:
 			topText = "m y   w o r k";
 			bottomText = "m y   c o n t a c t - i n f o";
-			let aboutMeText = "Hi there! Welcome to my portfolio. I'm a 23-year-old music and technology student at the University for the arts in Utrecht, where I'll be graduating in may. I have a passion for multidisciplinary projects, especially video games and theatre, and use my skills in programming to supplement my skills in composition on musical performance.\n\n" +
-			"My specialty is in temperate, methodical music. I like odd time signatures and keys; ideally my audience is on the edge of their seats at all times! Arrangement isn't a major concern, as I'm as well versed in working together with acoustic musicians as I am with sampling, synths and virtual orchestration. Where a faster pace is required I don't struggle to adjust, though I tend to work a little slower in relation to my lack of experience.\n\n"+
-			"Where possible I prefer to work in a team, face to face- though most of my projects end up being more practically served by online cooperation. To me there's nothing more exciting than sitting with my team and discussing the next steps we're going to be taking in our project.";
+			let aboutMeText = "Hi there! Welcome to my portfolio. I'm a 23-year-old music and technology student at the University for the arts in Utrecht, where I'll be graduating in juli. I have a passion for multidisciplinary projects, especially video games and theater, and use my skills in programming to supplement my skills in composition and musical performance.\n\n" +
+			"I specialize in slow, atmospheric music. I range between extreme calm and extreme tension, with a bias to tension; ideally I keep my audience on the edge of their seats at all times. I'm as well versed in working together with acoustic musicians as I am with sampling, synths and virtual orchestration. Upon request I'll gladly adjust to a faster pace. I deeply enjoy writing complex beats which would require five hands to be performed by a live musician- in those moments my computer comes in very handy!\n\n"+
+			"To me there's nothing more exciting than sitting with my team and discussing the next steps we're going to be taking in our project. If that conversation can be held in person, all the better.\n\n"+
+			"If you're reading this, hopefully that team will be yours!";
 			if (w > 700){ // LANDSCAPE
 				text_preset(0); textSize(tw*70); strokeWeight(5);
 				text('about me', tw*270, th*150);
@@ -226,6 +237,25 @@ function draw() {
 				text(aboutMeText, tw*40, 450*tw, tw*920);
 			}
 			textAlign(CENTER, CENTER);
+			break;
+		case 3:
+			topText = "m o r e   a b o u t   m e";
+			bottomText = "m y   d e m o - r e e l";
+			text_preset(2, true);
+			textSize(tw*40 + 3*(width/1920));
+			textAlign(LEFT, CENTER);
+			text('EMAIL :', 	tw*50, th*200);
+			text('PHONE :', 	tw*50, th*350);
+			text('LINKEDIN :', 	tw*50, th*500);
+			text('YOUTUBE :', 	tw*50, th*650);
+			textAlign(LEFT, TOP);
+			text('COMPANY DISCORD :', tw*50, th*750);
+			
+			textAlign(RIGHT);
+			text('xenaderks@gmail.com', tw*950, th*200);
+			text('+31 6 38762478', tw*950, th*350);
+			console.log(socials['linkedIn']);
+			socials[' linkedIn'].testHover(); socials['linkedIn'].place();
 			break;
 	}
 	
@@ -295,6 +325,16 @@ function windowResized() {
 										createVector(333*tw,333*th),
 										"other\nart",
 										true);
+	socials.linkedIn = new content_rect(tw*500, th*100,
+										createVector(tw*500,th*450),
+										true,
+										'linkedin.com/in/xena-derks-49a183208/',
+										col1 = color(0, 0, 0, 0),
+										col2 = color(255, 255, 255, 255),
+										col3 = color(255, 255, 255, 100),
+										col4 = color(0, 0, 0, 255),
+										underlineOrHighlight = "UNDERLINE",
+										pageLink = "https://www.linkedin.com/in/xena-derks-49a183208/");
 	metaBlocks.titlePage = new metaContainer(	createVector(850*tw, 90*th),
 												createVector(75*tw, 600*th),
 												"DEMO REEL",
@@ -366,6 +406,7 @@ function hitBoxCheck() {
 // FUNC TEXT PRESET
 function text_preset(setter, mod = false) {
 	// mod is a modifier. Triggers some special properties.
+	noStroke();
 	switch (setter) {
 		case 0: // XENA text
 			fill(main_pink);
@@ -381,12 +422,19 @@ function text_preset(setter, mod = false) {
 		case 2: // content-rect text.
 			textFont(mainFont);
 			if (a > 0.7 || mod) { textSize(tw*30) } else { textSize(tw*50) };
+			if (mod) { stroke(255,255,255,255); strokeWeight(1*tw) }
 			break;
 		case 3: // top + bottom text;
 			textFont(mainFont);
 			textSize(20*th);
 			noStroke();
 			fill(255,255,255,255);
+			break;
+		case 4: //intro line
+			textFont(mainFont);
+			textSize(th*30);
+			fill(color(255,155,155,255));
+			break;
 	}
 }
 // END TEXT PRESET FUNC
@@ -590,7 +638,7 @@ class metaContainer {
 				col3 = color(255, 255, 255, 100),
 				col4 = color(0, 0, 0, 255),
 				underlineOrHighlight = 'UNDERLINE',
-				siteStatesLinksList = [3, 1, 2, 5]) {
+				siteStatesLinksList = [4, 1, 2, 3]) {
 		this.ssll = siteStatesLinksList;
 		this.dims = metaDimensions;
 		this.pos = metaPos;
