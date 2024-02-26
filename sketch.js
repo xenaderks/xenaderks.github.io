@@ -9,7 +9,7 @@
 //  3: contact info
 //  4: demo reel
 let siteState = 0;
-let maxSiteState = 3;
+let maxSiteState = 4;
 let doStates = true; 	// outdated, but possibly useful in future
 let links 		= {}; 		// used for menu scene 		-> check setup
 let socials 	= {};		// used for contact info 	-> check setup
@@ -149,7 +149,7 @@ function setup() {
 										pageLink = "index.html");
 	links.game_design = new content_rect(333*tw, 626*th, 
 										createVector(0,333*th), 
-										"game\ncredits",
+										"programming",
 										true,
 										programmingImage,
 										col1 = color(0, 0, 0, 0),
@@ -163,16 +163,75 @@ function setup() {
 										"other\nart",
 										true,
 										miscImage);
-	socials.linkedIn = new content_rect(tw*500, th*100,
-										createVector(tw*500,th*450),
-										true,
-										'linkedin.com/in/xena-derks-49a183208/',
-										col1 = color(0, 0, 0, 0),
-										col2 = color(255, 255, 255, 255),
-										col3 = color(255, 255, 255, 100),
-										col4 = color(0, 0, 0, 255),
-										underlineOrHighlight = "UNDERLINE",
-										pageLink = "https://www.linkedin.com/in/xena-derks-49a183208/");
+	if (a > 1) {
+		socials.linkedIn = new content_rect(tw*400, th*100,
+											createVector(tw*550,th*450),
+											'/xena-derks-49a183208/  ',
+											true,
+											'',
+											col1 = color(0, 0, 0, 0),
+											col2 = color(255, 255, 255, 255),
+											col3 = color(255, 255, 255, 100),
+											col4 = color(0, 0, 0, 255),
+											underlineOrHighlight = "UNDERLINE",
+											pageLink = "https://www.linkedin.com/in/xena-derks-49a183208/");
+		socials.youtube = new content_rect(tw*400, th*100,
+											createVector(tw*550,th*600),
+											"xena's music corner  ",
+											true,
+											'',
+											col1 = color(0, 0, 0, 0),
+											col2 = color(255, 255, 255, 255),
+											col3 = color(255, 255, 255, 100),
+											col4 = color(0, 0, 0, 255),
+											underlineOrHighlight = "UNDERLINE",
+											pageLink = "https://www.youtube.com/@xenasBS");
+		socials.absin = new content_rect(tw*400, th*100,
+											createVector(tw*550,th*750),
+											"AbsIn  ",
+											true,
+											'',
+											col1 = color(0, 0, 0, 0),
+											col2 = color(255, 255, 255, 255),
+											col3 = color(255, 255, 255, 100),
+											col4 = color(0, 0, 0, 255),
+											underlineOrHighlight = "UNDERLINE",
+											pageLink = "https://discord.gg/NGymBDjENp");
+	} else {
+		socials.linkedIn = new content_rect(tw*500, th*100,
+											createVector(tw*250,th*480),
+											'/xena-derks-49a183208/  ',
+											true,
+											'',
+											col1 = color(0, 0, 0, 0),
+											col2 = color(255, 255, 255, 255),
+											col3 = color(255, 255, 255, 100),
+											col4 = color(0, 0, 0, 255),
+											underlineOrHighlight = "UNDERLINE",
+											pageLink = "https://www.linkedin.com/in/xena-derks-49a183208/");
+		socials.youtube = new content_rect(tw*500, th*100,
+											createVector(tw*250,th*630),
+											"xena's music corner  ",
+											true,
+											'',
+											col1 = color(0, 0, 0, 0),
+											col2 = color(255, 255, 255, 255),
+											col3 = color(255, 255, 255, 100),
+											col4 = color(0, 0, 0, 255),
+											underlineOrHighlight = "UNDERLINE",
+											pageLink = "https://www.youtube.com/@xenasBS");
+		socials.absin = new content_rect(tw*500, th*100,
+											createVector(tw*250,th*780),
+											"AbsIn  ",
+											true,
+											'',
+											col1 = color(0, 0, 0, 0),
+											col2 = color(255, 255, 255, 255),
+											col3 = color(255, 255, 255, 100),
+											col4 = color(0, 0, 0, 255),
+											underlineOrHighlight = "UNDERLINE",
+											pageLink = "https://discord.gg/NGymBDjENp");
+	}
 	metaBlocks.titlePage = new metaContainer(	createVector(850*tw, 65*tw),
 												createVector(75*tw, 350*th),
 												"DEMO REEL",
@@ -243,19 +302,41 @@ function draw() {
 			bottomText = "m y   d e m o - r e e l";
 			text_preset(2, true);
 			textSize(tw*40 + 3*(width/1920));
-			textAlign(LEFT, CENTER);
-			text('EMAIL :', 	tw*50, th*200);
-			text('PHONE :', 	tw*50, th*350);
-			text('LINKEDIN :', 	tw*50, th*500);
-			text('YOUTUBE :', 	tw*50, th*650);
-			textAlign(LEFT, TOP);
-			text('COMPANY DISCORD :', tw*50, th*750);
-			
-			textAlign(RIGHT);
-			text('xenaderks@gmail.com', tw*950, th*200);
-			text('+31 6 38762478', tw*950, th*350);
-			console.log(socials['linkedIn']);
-			socials[' linkedIn'].testHover(); socials['linkedIn'].place();
+			if (a > 1) { 
+				textAlign(LEFT, CENTER);
+				text('EMAIL :', 	tw*50, th*200);
+				text('PHONE :', 	tw*50, th*350);
+				text('LINKEDIN :', 	tw*50, th*500);
+				text('YOUTUBE :', 	tw*50, th*650);
+				textAlign(LEFT, TOP);
+				text('COMPANY DISCORD :', 	tw*50, th*750);
+				
+				textAlign(RIGHT, CENTER);
+				text('xenaderks@gmail.com', tw*950, th*200);
+				text('+31 6 38762478', 		tw*950, th*350);
+				for (let key in socials) {
+					socials[key].testHover(); 
+					socials[key].place([RIGHT, CENTER]);
+				}
+			} else { 
+				textAlign(CENTER, CENTER);
+				text('EMAIL :', 	tw*500, th*200);
+				text('PHONE :', 	tw*500, th*350);
+				text('LINKEDIN :', 	tw*500, th*500);
+				text('YOUTUBE :', 	tw*500, th*650);
+				text('COMPANY DISCORD :', 	tw*500, th*800);
+				text('xenaderks@gmail.com', tw*500, th*250);
+				text('+31 6 38762478', 		tw*500, th*400);
+				for (let key in socials) {
+					socials[key].testHover(); 
+					socials[key].place([CENTER, CENTER]);
+				}
+			}
+			break;
+		case 4:
+			topText = "m y   c o n t a c t - i n f o";
+			textAlign(CENTER, CENTER); text_preset(0); textSize(75*tw);
+			text('!under construction!', tw*500, th*500);
 			break;
 	}
 	
@@ -292,55 +373,7 @@ function draw() {
 
 // FUNC WINDOW RESIZED
 function windowResized() {
-	resizeCanvas(windowWidth, windowHeight);
-	w = windowWidth;
-	tw = w / 1000;
-	h = windowHeight;
-	th = h / 1000;
-	a = w / h;
-	Object.keys(transitions).forEach(key => {
-		transitions[key].start_dim = [[0, 0],[windowWidth, windowHeight]]; 
-		transitions[key].refresh(); });
-	links.game_music = new content_rect(666*tw, 293*th, 
-										createVector(0,40*th), 
-										"game\nmusic",
-										true,
-										gameImage);
-	links.theater = new content_rect(333*tw, 646*th, 
-										createVector(666*tw,40*th), 
-										"musical\ntheatre",
-										true,
-										theaterImage);
-	links.standalones = new content_rect(666*tw, 293*th, 
-										createVector(333*tw,666*th), 
-										"standalone\ncompositions",
-										true,
-										standalonesImage);
-	links.game_design = new content_rect(333*tw, 626*th, 
-										createVector(0,333*th), 
-										"game\ncredits",
-										true,
-										programmingImage);
-	links.other_art = new content_rect(333*tw, 333*th, 
-										createVector(333*tw,333*th),
-										"other\nart",
-										true);
-	socials.linkedIn = new content_rect(tw*500, th*100,
-										createVector(tw*500,th*450),
-										true,
-										'linkedin.com/in/xena-derks-49a183208/',
-										col1 = color(0, 0, 0, 0),
-										col2 = color(255, 255, 255, 255),
-										col3 = color(255, 255, 255, 100),
-										col4 = color(0, 0, 0, 255),
-										underlineOrHighlight = "UNDERLINE",
-										pageLink = "https://www.linkedin.com/in/xena-derks-49a183208/");
-	metaBlocks.titlePage = new metaContainer(	createVector(850*tw, 90*th),
-												createVector(75*tw, 600*th),
-												"DEMO REEL",
-												"MY WORK",
-												"ABOUT ME",
-												"CONTACT INFO");
+	setup();
 }
 // END WINDOW RESIZED
 
@@ -394,6 +427,15 @@ function hitBoxCheck() {
 			for (let key in links) {
 				if (links[key].testHover() && links[key].url != "") {
 					let newPage = links[key].url;
+					window.open(newPage, "_blank");
+					return(true);
+				}
+			}
+			break;
+		case 3:
+			for (let key in socials) {
+				if (socials[key].testHover()) {
+					let newPage = socials[key].url;
 					window.open(newPage, "_blank");
 					return(true);
 				}
@@ -578,7 +620,8 @@ class content_rect {
 										[this.pos.x + this.w, this.pos.y + this.h]
 									])
 	}
-	place() {
+	place(alignment = [CENTER, CENTER]) {
+		textAlign(alignment[0], alignment[1]);
 		let rect_col = lerpColor(this.color1, this.color3, this.lerp_state);
 		let txt_col = lerpColor(this.color4, this.color2, 1.0 - this.lerp_state);
 		// draw the rectangle itself.
@@ -601,7 +644,16 @@ class content_rect {
 		fill(txt_col);
 		stroke(txt_col);
 		strokeWeight(tw*1.75);
-		text(this.txt, this.pos.x + this.w / 2, this.pos.y + this.h / 2);
+		switch (alignment[0]){
+			case CENTER:
+				text(this.txt, this.pos.x + this.w / 2, this.pos.y + this.h / 2);
+				break;
+			case RIGHT:
+				text(this.txt, this.pos.x + this.w, this.pos.y + this.h / 2);
+				break;
+			default:
+				console.log(alignment);
+		}
 	}
 	testHover() {
 		if (testRectHover(this.pos, createVector(this.dims.x+this.pos.x, this.dims.y+this.pos.y))) {
