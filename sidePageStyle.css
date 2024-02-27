@@ -6,7 +6,7 @@
 
 body {
 	background-color: rgb(0,0,0);
-	margin: 50px;
+	margin-bottom: 50px;
 }
 
 main {
@@ -27,7 +27,7 @@ main {
 	color: rgb(255,255,255);
 	background-color: rgb(0,0,0);
 	text-align: center;
-	min-width: 35%;
+	min-width: 43%;
 	padding: 25px;
 	margin: 20px;
 	outline-style:solid;
@@ -44,21 +44,37 @@ main {
 	margin-bottom: 20px;
 }
 
+a {
+	background-color: rgb(255,210,230, 0.8);
+	padding: 5px;
+	line-height: 40px;
+}
+
 audio {
-	width: 100%;
+	width: 45%;
+	background-color: rgb(240,240,240);
+	outline-style:solid;
+	outline-width: 1px;
+	outline-color: var(--main_pink);
+	box-shadow: 0 0 15px var(--main_pink);
 }
 
 iframe {
-	width: 70%;
-	height:auto;
-	min-width: 250px;
-	min-height: 225px;
+	min-height: 300px;
+	min-width: 400px;
+	height: auto;
+	margin: 20px 0px 30px 0px;
+	border-radius: 4px;
+	box-shadow: 0 0 20px var(--main_pink);
 }
 
 .block-image {
 	max-width: 100%;
 	height: auto;
-	margin-top: 20px;
+	margin: 20px 0px 30px 0px;
+	max-height: 300px;
+	border-radius: 4px;
+	box-shadow: 0 0 20px var(--main_pink);
 }
 
 .text-container {
@@ -73,8 +89,11 @@ iframe {
 	width: 45%; /* Adjust the width as needed */
 }
 
-@media all and (max-width = 500px) {
-	.text-container {
-		font-size: 15px;
+@media only screen and (max-width: 600px) {
+	.block-text {
+		font-size: 12px;
+	}
+	.block-image, iframe {
+		max-height: 200px;
 	}
 }
