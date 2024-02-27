@@ -23,15 +23,17 @@ main {
 
 .portfolio-block {
 	flex: 1;
+	overflow: auto;
 	color: rgb(255,255,255);
 	background-color: rgb(0,0,0);
 	text-align: center;
-	min-width: 45%;
+	min-width: 35%;
 	padding: 25px;
 	margin: 20px;
 	outline-style:solid;
 	outline-width: 1px;
 	outline-color: var(--main_pink);
+	overflow: stretch;
 	border-radius: 8px;
 	box-shadow: 0 0 10px var(--main_pink);
 }
@@ -43,7 +45,14 @@ main {
 }
 
 audio {
-	min-width: 100%;
+	width: 100%;
+}
+
+iframe {
+	width: 70%;
+	height:auto;
+	min-width: 250px;
+	min-height: 225px;
 }
 
 .block-image {
@@ -62,4 +71,10 @@ audio {
 	font-size: 20px;
 	text-align: left;
 	width: 45%; /* Adjust the width as needed */
+}
+
+@media all and (max-width = 500px) {
+	.text-container {
+		font-size: 15px;
+	}
 }
