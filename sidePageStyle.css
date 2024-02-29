@@ -28,6 +28,7 @@ main {
 	background-color: rgb(0,0,0);
 	text-align: center;
 	min-width: 43%;
+	max-height: 700px;
 	padding: 25px;
 	margin: 20px;
 	outline-style:solid;
@@ -63,16 +64,24 @@ iframe {
 	min-height: 300px;
 	min-width: 400px;
 	height: auto;
-	margin: 20px 0px 30px 0px;
+	margin: 20px 20px 30px 20px;
 	border-radius: 4px;
 	box-shadow: 0 0 20px var(--main_pink);
 }
 
+.portrait {
+	min-height: 300px;
+	min-width: 12px;
+	height: 400px;
+	width: 225px;
+}
+
 .block-image {
 	max-width: 100%;
-	height: auto;
-	margin: 20px 0px 30px 0px;
+	min-width: 10%;
 	max-height: 300px;
+	height: auto;
+	margin: 20px 20px 30px 20px;
 	border-radius: 4px;
 	box-shadow: 0 0 20px var(--main_pink);
 }

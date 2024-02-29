@@ -135,7 +135,7 @@ function setup() {
 										col3 = color(255, 255, 255, 100),
 										col4 = color(0, 0, 0, 255),
 										underlineOrHighlight = "HIGHLIGHT",
-										pageLink = "index.html");
+										pageLink = "theaterMusic.html");
 	links.standalones = new content_rect(666*tw, 293*th, 
 										createVector(333*tw,666*th), 
 										"standalone\ncompositions",
