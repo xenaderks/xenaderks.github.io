@@ -146,7 +146,7 @@ function setup() {
 										col3 = color(255, 255, 255, 100),
 										col4 = color(0, 0, 0, 255),
 										underlineOrHighlight = "HIGHLIGHT",
-										pageLink = "index.html");
+										pageLink = "standalones.html");
 	links.game_design = new content_rect(333*tw, 626*th, 
 										createVector(0,333*th), 
 										"programming",
