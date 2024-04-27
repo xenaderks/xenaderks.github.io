@@ -88,9 +88,9 @@ function preload() {
 	theaterImage = loadImage('images/theater.jpg');
 	gameImage = loadImage('images/games_2.png');
 	programmingImage = loadImage('images/programming.png');
-	standalonesImage = loadImage('images/fanfare.jpg');
+	musicImage = loadImage('images/fanfare.jpg');
 	meImage = loadImage('images/me.jpg');
-	miscImage = loadImage('images/golden_dragon.png');
+	visualImage = loadImage('images/golden_dragon.png');
 }
 // END PRELOAD FUNC
 
@@ -114,55 +114,99 @@ function setup() {
 	backCol = color(0,0,0,255);
 	main_pink = color(255, 155, 155, 255);
 	noStroke();
-	links.game_music = new content_rect(666*tw, 293*th, 
-										createVector(0,40*th), 
-										"game\nmusic",
-										true,
-										gameImage,
-										col1 = color(0, 0, 0, 0),
-										col2 = color(255, 255, 255, 255),
-										col3 = color(255, 255, 255, 100),
-										col4 = color(0, 0, 0, 255),
-										underlineOrHighlight = "HIGHLIGHT",
-										pageLink = "gameMusic.html");
-	links.theater = new content_rect(333*tw, 646*th, 
-										createVector(666*tw,40*th), 
-										"musical\ntheatre",
-										true,
-										theaterImage,
-										col1 = color(0, 0, 0, 0),
-										col2 = color(255, 255, 255, 255),
-										col3 = color(255, 255, 255, 100),
-										col4 = color(0, 0, 0, 255),
-										underlineOrHighlight = "HIGHLIGHT",
-										pageLink = "theaterMusic.html");
-	links.standalones = new content_rect(666*tw, 293*th, 
-										createVector(333*tw,666*th), 
-										"standalone\ncompositions",
-										true,
-										standalonesImage,
-										col1 = color(0, 0, 0, 0),
-										col2 = color(255, 255, 255, 255),
-										col3 = color(255, 255, 255, 100),
-										col4 = color(0, 0, 0, 255),
-										underlineOrHighlight = "HIGHLIGHT",
-										pageLink = "standalones.html");
-	links.game_design = new content_rect(333*tw, 626*th, 
-										createVector(0,333*th), 
-										"programming",
-										true,
-										programmingImage,
-										col1 = color(0, 0, 0, 0),
-										col2 = color(255, 255, 255, 255),
-										col3 = color(255, 255, 255, 100),
-										col4 = color(0, 0, 0, 255),
-										underlineOrHighlight = "HIGHLIGHT",
-										pageLink = "index.html");
-	links.other_art = new content_rect(333*tw, 333*th, 
-										createVector(333*tw,333*th),
-										"other\nart",
-										true,
-										miscImage);
+	// links.game_music = new content_rect(666*tw, 293*th, 
+										// createVector(0,40*th), 
+										// "game\nmusic",
+										// true,
+										// gameImage,
+										// col1 = color(0, 0, 0, 0),
+										// col2 = color(255, 255, 255, 255),
+										// col3 = color(255, 255, 255, 100),
+										// col4 = color(0, 0, 0, 255),
+										// underlineOrHighlight = "HIGHLIGHT",
+										// pageLink = "gameMusic.html");
+	// links.theater = new content_rect(333*tw, 646*th, 
+										// createVector(666*tw,40*th), 
+										// "musical\ntheatre",
+										// true,
+										// theaterImage,
+										// col1 = color(0, 0, 0, 0),
+										// col2 = color(255, 255, 255, 255),
+										// col3 = color(255, 255, 255, 100),
+										// col4 = color(0, 0, 0, 255),
+										// underlineOrHighlight = "HIGHLIGHT",
+										// pageLink = "theaterMusic.html");
+	// links.standalones = new content_rect(666*tw, 293*th, 
+										// createVector(333*tw,666*th), 
+										// "standalone\ncompositions",
+										// true,
+										// standalonesImage,
+										// col1 = color(0, 0, 0, 0),
+										// col2 = color(255, 255, 255, 255),
+										// col3 = color(255, 255, 255, 100),
+										// col4 = color(0, 0, 0, 255),
+										// underlineOrHighlight = "HIGHLIGHT",
+										// pageLink = "standalones.html");
+	// links.game_design = new content_rect(333*tw, 626*th, 
+										// createVector(0,333*th), 
+										// "programming",
+										// true,
+										// programmingImage,
+										// col1 = color(0, 0, 0, 0),
+										// col2 = color(255, 255, 255, 255),
+										// col3 = color(255, 255, 255, 100),
+										// col4 = color(0, 0, 0, 255),
+										// underlineOrHighlight = "HIGHLIGHT",
+										// pageLink = "index.html");
+	// links.other_art = new content_rect(333*tw, 333*th, 
+										// createVector(333*tw,333*th),
+										// "other\nart",
+										// true,
+										// miscImage);
+	links.audio = new content_rect(250*tw, 1000*th, 
+									createVector(0,0), 
+									"audio",
+									true,
+									musicImage,
+									col1 = color(0, 0, 0, 0),
+									col2 = color(255, 255, 255, 255),
+									col3 = color(255, 255, 255, 100),
+									col4 = color(0, 0, 0, 255),
+									underlineOrHighlight = "HIGHLIGHT",
+									pageLink = "audio.html");
+	links.code = new content_rect(250*tw, 1000*th, 
+									createVector(250*tw,0), 
+									"code",
+									true,
+									programmingImage,
+									col1 = color(0, 0, 0, 0),
+									col2 = color(255, 255, 255, 255),
+									col3 = color(255, 255, 255, 100),
+									col4 = color(0, 0, 0, 255),
+									underlineOrHighlight = "HIGHLIGHT",
+									pageLink = "code.html");
+	links.theater = new content_rect(250*tw, 1000*th, 
+									createVector(500*tw,0), 
+									"theater",
+									true,
+									theaterImage,
+									col1 = color(0, 0, 0, 0),
+									col2 = color(255, 255, 255, 255),
+									col3 = color(255, 255, 255, 100),
+									col4 = color(0, 0, 0, 255),
+									underlineOrHighlight = "HIGHLIGHT",
+									pageLink = "theater.html");
+	links.visual = new content_rect(250*tw, 1000*th, 
+									createVector(750*tw,0), 
+									"visual",
+									true,
+									visualImage,
+									col1 = color(0, 0, 0, 0),
+									col2 = color(255, 255, 255, 255),
+									col3 = color(255, 255, 255, 100),
+									col4 = color(0, 0, 0, 255),
+									underlineOrHighlight = "HIGHLIGHT",
+									pageLink = "visual.html");
 	if (a > 1) {
 		socials.linkedIn = new content_rect(tw*400, th*100,
 											createVector(tw*550,th*450),
@@ -341,22 +385,22 @@ function draw() {
 	}
 	
 	// VV Top + Bottom text
-	textAlign(CENTER, CENTER);
-	text_preset(3);
-	let instruction;
-	let upInstruction = "";
-	let downInstruction = "";
-	if (!isTouch) { instruction = "s c r o l l   "; } else { instruction = "s w i p e   "; }
-	if (siteState != maxSiteState) {
-		if (isTouch) { upInstruction = instruction + "u p   f o r   " + bottomText; }
-		else { upInstruction = instruction + "d o w n   f o r   " + bottomText; }
-	}
-	if (siteState != 0) { 
-		if (isTouch) { downInstruction = instruction + "d o w n   f o r   " + topText; }
-		else { downInstruction = instruction + "u p   f o r   " + topText; }
-	}
-	text(upInstruction, tw*500, th*967);
-	text(downInstruction, tw*500, th*15);
+	// textAlign(CENTER, CENTER);
+	// text_preset(3);
+	// let instruction;
+	// let upInstruction = "";
+	// let downInstruction = "";
+	// if (!isTouch) { instruction = "s c r o l l   "; } else { instruction = "s w i p e   "; }
+	// if (siteState != maxSiteState) {
+		// if (isTouch) { upInstruction = instruction + "u p   f o r   " + bottomText; }
+		// else { upInstruction = instruction + "d o w n   f o r   " + bottomText; }
+	// }
+	// if (siteState != 0) { 
+		// if (isTouch) { downInstruction = instruction + "d o w n   f o r   " + topText; }
+		// else { downInstruction = instruction + "u p   f o r   " + topText; }
+	// }
+	// text(upInstruction, tw*500, th*967);
+	// text(downInstruction, tw*500, th*15);
 	
 	// VV Manage Transitions VV
 	if (canScroll) { return }
@@ -554,7 +598,7 @@ class transition {
 				if (this.dir == "DOWN") {
 					for (let i = 0; i < this.start_dim[1][1] * 3; i++) {
 						let grad = this.gradient[i];
-						let c = color(255,255,255,grad[2]);
+						let c = color(0,0,0,grad[2]);
 						stroke(c);
 						let offsetY = stepDist * this.progress;
 						line(grad[0].x, grad[0].y - offsetY,
@@ -563,7 +607,7 @@ class transition {
 				} else if (this.dir == "UP") {
 					for (let i = 0; i < this.start_dim[1][1] * 3; i++) {
 						let grad = this.gradient[i];
-						let c = color(255,255,255,grad[2]);
+						let c = color(0,0,0,grad[2]);
 						stroke(c);
 						let offsetY = maxDist - (stepDist * this.progress);
 						line(grad[0].x, grad[0].y - offsetY,

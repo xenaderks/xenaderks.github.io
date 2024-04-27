@@ -21,6 +21,15 @@ main {
 	height: 100vh;
 }
 
+h1 {
+	font-family: "Bungee Outline", sans-serif;
+	font-weight: 1200;
+	font-style: normal;
+	font-size: 90px;
+	text-shadow: var(--main_pink) 1px 0 3px;
+	color: var(--main_pink);
+}
+
 .portfolio-block {
 	flex: 1;
 	## overflow: auto;
