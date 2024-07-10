@@ -151,6 +151,13 @@ iframe {
 	/* margin-top: 20px; */
 }
 
+.block-embed {
+	width: 90%;
+	height: 167px;
+	border-radius:5px;
+	box-shadow:0 0 0px;
+}
+
 .block-text {
 	font-size: 20px;
 	text-align: left;
