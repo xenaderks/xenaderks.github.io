@@ -114,55 +114,6 @@ function setup() {
 	backCol = color(0,0,0,255);
 	main_pink = color(255, 155, 155, 255);
 	noStroke();
-	// links.game_music = new content_rect(666*tw, 293*th, 
-										// createVector(0,40*th), 
-										// "game\nmusic",
-										// true,
-										// gameImage,
-										// col1 = color(0, 0, 0, 0),
-										// col2 = color(255, 255, 255, 255),
-										// col3 = color(255, 255, 255, 100),
-										// col4 = color(0, 0, 0, 255),
-										// underlineOrHighlight = "HIGHLIGHT",
-										// pageLink = "gameMusic.html");
-	// links.theater = new content_rect(333*tw, 646*th, 
-										// createVector(666*tw,40*th), 
-										// "musical\ntheatre",
-										// true,
-										// theaterImage,
-										// col1 = color(0, 0, 0, 0),
-										// col2 = color(255, 255, 255, 255),
-										// col3 = color(255, 255, 255, 100),
-										// col4 = color(0, 0, 0, 255),
-										// underlineOrHighlight = "HIGHLIGHT",
-										// pageLink = "theaterMusic.html");
-	// links.standalones = new content_rect(666*tw, 293*th, 
-										// createVector(333*tw,666*th), 
-										// "standalone\ncompositions",
-										// true,
-										// standalonesImage,
-										// col1 = color(0, 0, 0, 0),
-										// col2 = color(255, 255, 255, 255),
-										// col3 = color(255, 255, 255, 100),
-										// col4 = color(0, 0, 0, 255),
-										// underlineOrHighlight = "HIGHLIGHT",
-										// pageLink = "standalones.html");
-	// links.game_design = new content_rect(333*tw, 626*th, 
-										// createVector(0,333*th), 
-										// "programming",
-										// true,
-										// programmingImage,
-										// col1 = color(0, 0, 0, 0),
-										// col2 = color(255, 255, 255, 255),
-										// col3 = color(255, 255, 255, 100),
-										// col4 = color(0, 0, 0, 255),
-										// underlineOrHighlight = "HIGHLIGHT",
-										// pageLink = "index.html");
-	// links.other_art = new content_rect(333*tw, 333*th, 
-										// createVector(333*tw,333*th),
-										// "other\nart",
-										// true,
-										// miscImage);
 	links.audio = new content_rect(250*tw, 1000*th, 
 									createVector(0,0), 
 									"audio",
@@ -437,16 +388,16 @@ function testRectHover(point1, point2) {
 // FUNC TRANSITION TRIGGER
 function transitionTrigger(triggerValue, threshold = 40, stateSetter = 999) {
 	if(triggerValue > threshold) { // down
-		if (siteState == maxSiteState) { return(false) } // prevents safari from throwing a fit.
 		transitions.next_scene.progress = 0;
-		if (stateSetter == 999) { transitions.next_scene.tGoal = siteState + 1 }
+		if (siteState == maxSiteState) { transitions.next_scene.tGoal = 0 }
+		else if (stateSetter == 999) { transitions.next_scene.tGoal = siteState + 1 }
 		else { transitions.next_scene.tGoal = stateSetter }
 		scrollDir = "DOWN"; canScroll = false;
 	}
 	if(triggerValue < -threshold) { // up
-		if (siteState == 0) { return(false) } // prevents safari from throwing a fit.
 		transitions.prev_scene.progress = 0;
-		if (stateSetter == 999) { transitions.prev_scene.tGoal = siteState - 1 }
+		if (siteState == 0) { transitions.prev_scene.tGoal = maxSiteState }
+		else if (stateSetter == 999) { transitions.prev_scene.tGoal = siteState - 1 }
 		else { transitions.prev_scene.tGoal = stateSetter }
 		scrollDir = "UP"; canScroll = false;
 	}
