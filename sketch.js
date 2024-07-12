@@ -161,7 +161,7 @@ function setup() {
 	if (a > 1) {
 		socials.linkedIn = new content_rect(tw*400, th*100,
 											createVector(tw*550,th*450),
-											'/xena-derks-49a183208/  ',
+											'/xena-derks/  ',
 											true,
 											'',
 											col1 = color(0, 0, 0, 0),
@@ -169,7 +169,7 @@ function setup() {
 											col3 = color(255, 255, 255, 100),
 											col4 = color(0, 0, 0, 255),
 											underlineOrHighlight = "UNDERLINE",
-											pageLink = "https://www.linkedin.com/in/xena-derks-49a183208/");
+											pageLink = "https://www.linkedin.com/in/xena-derks/");
 		socials.youtube = new content_rect(tw*400, th*100,
 											createVector(tw*550,th*600),
 											"xena's music corner  ",
