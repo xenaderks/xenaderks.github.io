@@ -114,7 +114,7 @@ function setup() {
 	backCol = color(0,0,0,255);
 	main_pink = color(255, 155, 155, 255);
 	noStroke();
-	links.audio = new content_rect(250*tw, 1000*th, 
+	links.audio = new content_rect(333*tw, 1000*th, 
 									createVector(0,0), 
 									"audio",
 									true,
@@ -125,8 +125,8 @@ function setup() {
 									col4 = color(0, 0, 0, 255),
 									underlineOrHighlight = "HIGHLIGHT",
 									pageLink = "audio.html");
-	links.code = new content_rect(250*tw, 1000*th, 
-									createVector(250*tw,0), 
+	links.code = new content_rect(333*tw, 1000*th, 
+									createVector(333*tw,0), 
 									"code",
 									true,
 									programmingImage,
@@ -136,8 +136,8 @@ function setup() {
 									col4 = color(0, 0, 0, 255),
 									underlineOrHighlight = "HIGHLIGHT",
 									pageLink = "code.html");
-	links.theater = new content_rect(250*tw, 1000*th, 
-									createVector(500*tw,0), 
+	links.theater = new content_rect(334*tw, 1000*th, 
+									createVector(666*tw,0), 
 									"theater",
 									true,
 									theaterImage,
@@ -147,17 +147,17 @@ function setup() {
 									col4 = color(0, 0, 0, 255),
 									underlineOrHighlight = "HIGHLIGHT",
 									pageLink = "theater.html");
-	links.visual = new content_rect(250*tw, 1000*th, 
-									createVector(750*tw,0), 
-									"visual",
-									true,
-									visualImage,
-									col1 = color(0, 0, 0, 0),
-									col2 = color(255, 255, 255, 255),
-									col3 = color(255, 255, 255, 100),
-									col4 = color(0, 0, 0, 255),
-									underlineOrHighlight = "HIGHLIGHT",
-									pageLink = "visual.html");
+	// links.visual = new content_rect(250*tw, 1000*th, 
+									// createVector(750*tw,0), 
+									// "visual",
+									// true,
+									// visualImage,
+									// col1 = color(0, 0, 0, 0),
+									// col2 = color(255, 255, 255, 255),
+									// col3 = color(255, 255, 255, 100),
+									// col4 = color(0, 0, 0, 255),
+									// underlineOrHighlight = "HIGHLIGHT",
+									// pageLink = "visual.html");
 	if (a > 1) {
 		socials.linkedIn = new content_rect(tw*400, th*100,
 											createVector(tw*550,th*450),
