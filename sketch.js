@@ -1,4 +1,4 @@
-// 		G - L - O - B - A - L -------------------------
+ // 		G - L - O - B - A - L -------------------------
 // V - A - R - I - A - B - L - E - S ------------------
  
 // S C E N E - V A R S
@@ -274,10 +274,13 @@ function draw() {
 		case 2:
 			topText = "m y   w o r k";
 			bottomText = "m y   c o n t a c t - i n f o";
-			let aboutMeText = "Hi there! Welcome to my portfolio. I'm a 23-year-old music and technology student at the University for the arts in Utrecht, where I'll be graduating in juli. I have a passion for multidisciplinary projects, especially video games and theater, and use my skills in programming to supplement my skills in composition and musical performance.\n\n" +
-			"I specialize in slow, atmospheric music. I range between extreme calm and extreme tension, with a bias to tension; ideally I keep my audience on the edge of their seats at all times. I'm as well versed in working together with acoustic musicians as I am with sampling, synths and virtual orchestration. Upon request I'll gladly adjust to a faster pace. I deeply enjoy writing complex beats which would require five hands to be performed by a live musician- in those moments my computer comes in very handy!\n\n"+
-			"To me there's nothing more exciting than sitting with my team and discussing the next steps we're going to be taking in our project. If that conversation can be held in person, all the better.\n\n"+
-			"If you're reading this, hopefully that team will be yours!";
+			let age = year() - 2000;
+			if (month() < 8 || (month() == 8 && day() < 18)) {
+				age -= 1;
+			}
+			let aboutMeText = "Hi there! Welcome to my portfolio. I'm a "+age+"-year-old musician, composer and audiocoder and an alumnus of the University of the Arts in Utrecht, where I studied Music & Technology. I have a passion for multidisciplinary projects, especially ones which allow my to stretch my problem-solving abilities, using programming to supplement my skills in composition and musical performance. Video-game production is my favorite creative environment, allowing me to be constantly involved in thinking up creative solutions to the ever-changing actions of our players.\n\n" +
+			"I specialize in slow, atmospheric music. I range between intense stillness and extreme tension, with a bias to tension; ideally I keep my audience on the edge of their seats at all times. I'm as well versed in working together with acoustic musicians as I am with sampling, synths and virtual orchestration. Upon request I'll gladly adjust to a faster pace. I deeply enjoy writing complex beats which would require five hands to be performed by a live musician- in those moments my computer comes in very handy!\n\n"+
+			"To me there's nothing more exciting than sitting with my team and discussing the next steps we're going to be taking in our project. If that conversation can be held in person, all the better!";
 			if (w > 700){ // LANDSCAPE
 				text_preset(0); textSize(tw*70); strokeWeight(5);
 				text('about me', tw*270, th*150);
