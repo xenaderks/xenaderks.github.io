@@ -1,26 +1,185 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- <link rel="stylesheet" href="style.css"> -->
-	<title>Xena — Home Page</title>
-	<link rel="icon" type="image/x-icon" href="/images/logo.png">
-	<!-- online resources -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Bungee+Outline&family=Montserrat:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-	<!-- p5 libraries -->
-	<script src="p5.min.js"></script>
-	<script src="addons/p5.sound.js"></script>
-	<script src="sketch.js"></script>
-</head>
+	<!--Importing stuff, linking fonts and css styles-->
+	<head>
+		<title>Xena's Music Corner</title>
+		
+		<link rel="icon" type="image/x-icon" href=
+		"./images/logo_limited_expanded_no-background.png">
+		
+		<link rel="shortcut icon" type="image/x-icon" href=
+		"./images/logo_limited_expanded_no-background.png">
 
-<body style="margin:0px; padding:0px; width: 100%; height: 100%; overflow-y: hidden;">
-	<main>
-	</main>
-</body>
+		<!--Make sure site scales properly-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+		<!--links to several recources-->
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bungee+Outline">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+		<!--Stylesheet-->
+		<link rel="stylesheet" href="style.css">
+	</head>
+
+	<body>
+		<div class="container">
+			<img src="./images/topImage03.jpg" class="main-image" id="main-img"></img>
+			<div class="main-block" id="main-content">
+				<h1>XENA DERKS</h1>
+				<div class="banner thin centered even-spaced">
+					<a href="https://www.linkedin.com/in/xena-derks/" class="fa fa-linkedin"></a>
+					<a class="fa fa-phone" id="phone"></a>
+					<a class="fa fa-envelope" id="mail"></a>
+					<a class="fa fa-file" id="CV" title="download my CV" href="CV_EN_Xena_Derks.pdf" download="CurriculumVitae"></a>
+					<!-- <select class="fa filter" name="filter" id="filter">
+						<option value="favorites">favorites</option>
+						<option value="age-up">oldest first</option>
+						<option value="age-down">newest first</option>
+						<option value="audio">audio</option>
+						<option value="code">code</option>
+						<option value="theater">theater</option>
+					</select> -->
+					<script src="buttonFuncs.js"></script>
+				</div>
+				<p class="thin centered">Over the past decade I've completed my Ba. in Music & Technology at the University of the Arts Utrecht (HKU).
+					I've transitioned my classes into a burgeoning videogame company for which I provide audio and programming, 
+					but I'm still looking for a place to further develop my skills in a pre-established environment. As long as 
+					I'm still working outside of such an environment, my focus remains to assist in the creation of touching, 
+					engaging pieces of multimedia artwork. 
+				</p>
+				<div class="banner thin centered even-spaced wrap-overflow">
+					<div 
+						class="sub-block"
+						data-favorite="100"
+						data-age="0"
+						data-audio="1"
+						data-music="1"
+						data-code="1"
+						data-theater="0"
+					>
+						<a href="SRC.html" class="full-width half-height">
+							Surreality Check
+							<p class="greyed-out">music | code</p>
+						</a>
+					</div>
+					<div 
+						class="sub-block"
+						data-favorite="90"
+						data-age="5"
+						data-audio="0"
+						data-music="2"
+						data-code="0"
+						data-theater="0"
+					>
+						<a href="C&M.html" class="full-width half-height">
+							Cat & Mice
+							<p class="greyed-out">composition</p>
+						</a>
+					</div>
+					<div 
+						class="sub-block"
+						data-favorite="80"
+						data-age="3"
+						data-audio="1"
+						data-music="1"
+						data-code="0"
+						data-theater="1"
+					>
+						<a href="TJW.html" class="full-width half-height">
+							The Jabberwock
+							<p class="greyed-out">sound design</p>
+						</a>
+					</div>
+					<div 
+						class="sub-block"
+						data-favorite="60"
+						data-age="2"
+						data-audio="1"
+						data-music="1"
+						data-code="0"
+						data-theater="2"
+					>
+						<a href="X.html" class="full-width half-height">
+							01011000
+							<p class="greyed-out">music | theater</p>
+						</a>
+					</div>
+					<div 
+						class="sub-block music theater"
+						data-favorite="70"
+						data-age="4"
+						data-audio="0"
+						data-music="2"
+						data-code="0"
+						data-theater="2"
+					>
+						<a href="LIM.html">
+							Limbus
+							<p class="greyed-out">music | theater</p>
+						</a>
+					</div>
+					<div 
+						class="sub-block music"
+						data-favorite="65"
+						data-age="4"
+						data-audio="0"
+						data-music="2"
+						data-code="0"
+						data-theater="2"
+					>
+						<a href="COG.html">
+							Cogs
+							<p class="greyed-out">composition</p>
+						</a>
+					</div>
+					<div class="sub-block music theater">
+						<a href="KAS.html">
+							Kasko
+							<p class="greyed-out">music | theater</p>
+						</a>
+					</div>
+					<div class="sub-block music">
+						<a href="BAW.html">
+							Beasts Awakening
+							<p class="greyed-out">composition</p>
+						</a>
+					</div>
+					<!-- <div class="sub-block music game">
+						<a href="GRH.html">
+							Ghost Rhythms
+							<p class="greyed-out">game music</p>
+						</a>
+					</div> -->
+					<div class="sub-block music game">
+						<a href="ZOR.html">
+							Zorpon
+							<p class="greyed-out">game music</p>
+						</a>
+					</div>
+					<div class="sub-block music game">
+						<a href="TUW.html">
+							The Unbearable Well
+							<p class="greyed-out">game music</p>
+						</a>
+					</div>
+					<div class="sub-block music game sound">
+						<a href="BRG.html">
+							Bridge Game
+							<p class="greyed-out">sound design</p>
+						</a>
+					</div>
+					<div class="sub-block music code game sound">
+						<a href="ALN.html">
+							Alone
+							<p class="greyed-out">solo development</p>
+						</a>
+					</div>
+				</div>
+			</div>
+			<script src="img_pos_adjust.js"></script>
+		</div>
+	</body>
 </html>

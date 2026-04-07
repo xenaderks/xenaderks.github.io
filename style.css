@@ -1,0 +1,246 @@
+/* anything that applies to the page itself. */
+html {
+	scroll-behavior: smooth;
+}
+
+/* defining (color) variables for later reference. */
+:root{
+	--pink-01: rgba(255,200,255,1);
+	--pink-02: rgb(120, 54, 120);
+	--black-01: rgba(0,0,0,1);
+}
+
+
+body {
+	overflow-x:hidden;
+	-ms-overflow-style: none; /* IE and Edge */
+	font-family: 'Montserrat';
+	background-color: var(--black-01);
+}
+/* --------------------------------------------------------------- */
+/*base elements*/
+h1 {
+	font-family: 'Bungee Outline';
+	font-size: 70px;
+	color: var(--pink-01);
+	justify-self: center;
+	justify-content: center;
+	text-align: center;
+	user-select: none;
+}
+
+h2 {
+	color: var(--pink-01);
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 25px;
+	justify-self: center;
+	font-weight: bold;
+}
+
+p {
+	color: white;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+select {
+	font-size: 5px;
+	font-family: 'Montserrat';
+}
+
+option {
+	color: inherit;
+	font-weight: bold;
+	font-family: 'Montserrat';
+	font-size: 12px;
+}
+
+a {
+	text-decoration: none;
+	font-size: 15px;
+	transition: font-size 0.5s;
+	line-height: 0px;
+}
+a:hover {
+	font-size: 17px;
+}
+
+/* --------------------------------------------------------------- */
+
+/* background image */
+.main-image {
+	height:100vh;
+	aspect-ratio: 840 / 1120;
+	z-index: -1;
+	position: fixed;
+	left:0px;
+}
+
+/* --------------------------------------------------------------- */
+
+.container {
+	width:100vw;
+	min-height:100vh;
+	display:flex;
+	flex-wrap:auto;
+	justify-content:flex-end;
+}
+
+.side-page {
+	width: 95vw;
+	min-height: 95vh;
+	border-style: solid;
+	border-color: var(--pink-01);
+	border-radius: 2vw;
+	border-width: 10px;
+	margin: 2.5vh 5vw 2.5vh 5vw;
+	justify-content: center;
+}
+
+/* main block right */
+.main-block {
+	width: 70vw;
+	min-height: 100vh;
+	background-color: var(--black-01);
+	padding-left: 60px;
+	padding-right: 60px;
+}
+
+/* content blocks (per displayed work) */
+.sub-block {
+	min-width: 150px;
+	width: 5vw;
+	padding: 3% 1% 3% 1%;
+	color: var(--pink-01);
+	text-align: center;
+	font-weight: bold;
+}
+
+.banner {
+	display: flex;
+	justify-content: center;
+}
+
+.filter {
+	color: var(--pink-01);
+	width:100px;
+	background: #e5ccdfcb;
+	color: black;
+}
+
+/* Style all font awesome icons */
+.fa {
+	padding: 10px;
+	font-size: 30px;
+	height: 50px;
+	width: 50px;
+	text-align: center;
+	user-select: None;
+	cursor: pointer;
+	justify-content: center;
+	text-decoration: none;
+	border-radius: 50px;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Linkedin */
+.fa-linkedin {
+  background: #325bb4;
+  color: white;
+}
+
+/* Phone */
+.fa-phone {
+  background: #9140c4;
+  color: white;
+}
+
+/* Mail */
+.fa-envelope {
+  background: #89c9d3;
+  color: rgb(0, 0, 0);
+}
+
+/* CV */
+.fa-file {
+	background: #e44ab6;
+	color: black;
+}
+
+.fa-arrow-down {
+	background: #e5ccdfcb;
+	color: black;
+}
+
+/* MODULAR PROPERTIES */
+.full-width {
+	width:100%;
+}
+.half-width {
+	width: 50%;
+}
+
+.full-height {
+	height:100%;
+}
+.half-height {
+	height: 50%;
+}
+
+.thin {
+	width: 500px;
+}
+
+.centered {
+	justify-self: center;
+	align-self: center;
+}
+
+.even-spaced {
+	justify-content: space-evenly;
+}
+
+.wrap-overflow {
+	flex-wrap: wrap;
+}
+
+.highlighted {
+	text-decoration: underline;
+	background-color: rgb(255.0,255.0,255.0,0.25);
+}
+
+.frame-dimensions {
+	width: 100%;
+	height: 20vw;
+}
+
+.no-min-height {
+	min-height:auto;
+}
+
+.greyed-out {
+	color:grey;
+}
+@media only screen and (max-width:835px) {
+	a {
+		font-size: 11px;
+	}
+	a:hover {
+		font-size: 12px;
+	}
+
+	.sub-block {
+		min-width:100px;
+	}
+	.thin {
+		width: 50vw;
+	}
+	.half-width {
+		width:100%;
+	}
+}
