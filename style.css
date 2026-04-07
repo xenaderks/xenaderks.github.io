@@ -227,6 +227,9 @@ a:hover {
 	color:grey;
 }
 @media only screen and (max-width:835px) {
+	h1 {
+		font-size: 50px;
+	}
 	a {
 		font-size: 11px;
 	}
@@ -238,7 +241,7 @@ a:hover {
 		min-width:100px;
 	}
 	.thin {
-		width: 50vw;
+		width: 75vw;
 	}
 	.half-width {
 		width:100%;
