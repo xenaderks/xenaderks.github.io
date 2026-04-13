@@ -1,0 +1,50 @@
+/* anything that applies to the page itself. */
+html {
+	scroll-behavior: smooth;
+}
+
+/* defining (color) variables for later reference. */
+:root{
+	--green-01: #9dffb0;
+	--blue-01: #81f1f7;
+	--white-01: #fffffa;
+	--brown-01: #c48d3f;
+	--yellow-01: #fff563;
+}
+
+
+body {
+	overflow-x:hidden;
+	-ms-overflow-style: none; /* IE and Edge */
+	font-family: 'Montserrat';
+	background-color: var(--green-01);
+}
+
+main {
+	background-color: var(--white-01);
+	border-radius: 50px;
+	margin: 3% 5% 3% 5%;
+	padding: 3% 5% 3% 5%;
+}
+
+input {
+	border-radius: 5px;
+	width: 40px;
+	height: 25px;
+	text-align: center;
+}
+
+.checkbox{
+	width: 15px;
+	height: 15px;
+}
+
+h2 {
+	line-height: 24px;
+	font-weight: bold;
+}
+
+h3 {
+	line-height: 15px;
+	font-weight: 200;
+}
