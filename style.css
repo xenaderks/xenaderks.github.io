@@ -57,11 +57,17 @@ option {
 a {
 	text-decoration: none;
 	font-size: 15px;
-	transition: font-size 0.5s;
+	transition: color 0.1s;
 	line-height: 0px;
 }
 a:hover {
-	font-size: 17px;
+	color: white;
+}
+
+.false-a {
+	text-decoration: none;
+	font-size: 15px;
+	color: var(--pink-01);
 }
 
 /* --------------------------------------------------------------- */
@@ -113,11 +119,13 @@ a:hover {
 	color: var(--pink-01);
 	text-align: center;
 	font-weight: bold;
+	line-height: 1;
 }
 
 .banner {
 	display: flex;
 	justify-content: center;
+	user-select: none;
 }
 
 .filter {
@@ -139,6 +147,14 @@ a:hover {
 	justify-content: center;
 	text-decoration: none;
 	border-radius: 50px;
+}
+
+.border-sides {
+	border-style: solid;
+	border-color: var(--pink-01);
+	border-width: 5px;
+	border-top-width: 0px;
+	border-bottom-width: 0px;
 }
 
 /* Add a hover effect if you want */
@@ -183,6 +199,9 @@ a:hover {
 }
 .half-width {
 	width: 50%;
+}
+.half-screen-width {
+	width: 50vw;
 }
 
 .full-height {
@@ -230,19 +249,12 @@ a:hover {
 	h1 {
 		font-size: 50px;
 	}
-	a {
-		font-size: 11px;
-	}
-	a:hover {
-		font-size: 12px;
-	}
-
-	.sub-block {
-		min-width:100px;
-	}
 	.thin {
 		width: 75vw;
 	}
+}
+
+@media only screen and (max-width:1300px) {
 	.half-width {
 		width:100%;
 	}
