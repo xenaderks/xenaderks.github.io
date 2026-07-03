@@ -1,6 +1,7 @@
 /* anything that applies to the page itself. */
 html {
 	scroll-behavior: smooth;
+	caret-color: transparent;
 }
 
 /* defining (color) variables for later reference. */
@@ -38,6 +39,10 @@ h2 {
 }
 
 p {
+	color: white;
+	font-family:Arial, Helvetica, sans-serif;
+}
+.false-p {
 	color: white;
 	font-family:Arial, Helvetica, sans-serif;
 }
@@ -164,6 +169,16 @@ a:hover {
 
 /* Set a specific color for each brand */
 
+
+.fa-arrow-left {
+	background: var(--pink-01);
+	color: black;
+	position: fixed;
+	left: 5vw;
+	top: 5vh;
+	z-index: 2;
+}
+
 /* Linkedin */
 .fa-linkedin {
   background: #325bb4;
@@ -242,15 +257,37 @@ a:hover {
 	min-height:auto;
 }
 
+.no-vert-padding {
+	padding-bottom: 0px;
+	padding-top: 0px;
+}
+
 .greyed-out {
 	color:grey;
 }
+
+.white-out {
+	color:white;
+}
+
 @media only screen and (max-width:835px) {
 	h1 {
 		font-size: 50px;
 	}
 	.thin {
 		width: 75vw;
+	}
+	.main-block {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	.side-page {
+		border-style: none;
+		margin: 1vh 2.5vw 1vh 2.5vw;
+		justify-content: center;
+	}
+	.main-image {
+		display:none;
 	}
 }
 

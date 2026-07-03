@@ -2,7 +2,7 @@ const groupButtons = document.getElementsByClassName("greyed-out");
 let idList = ["musicselected", "codeselected", "interactiveselected", "liveselected"];
 let selectableNodes = {
 	"musicselected"			: `
-		<div class="main-block half-width no-min-height">
+		<div class="main-block half-width no-min-height" id="start">
 			<p class="sub-block full-width">Cat & Mice</p>
 			<audio controls class="full-width">
 				<source src="works/Cat_and_Mice.mp3" type="audio/mpeg"></source>
@@ -114,23 +114,110 @@ let selectableNodes = {
 				Some music from a years-old gamejam. <a href="TUW.html" class="centered highlighted">More about the Unbearable Well...</a>
 			</p>
 		</div>
+		
+		<div class="main-block half-width no-min-height">
+			<p class="sub-block full-width">My youtube channel</p>
+			<a class="false-p highlighted" style="line-height:1;" href="https://www.youtube.com/@CTwithT">
+				My youtube channel, where I post in bursts and sometimes it's good!
+			</a>
+		</div>
+
+		<div class="banner thin centered even-spaced wrap-overflow">
+			<a class="greyed-out" style="line-height:1;" href="#categoryButtons">
+				</br></br></br>
+				~ back to top ~
+			</a>
+		</div>
 	`,
 
 	"codeselected"			: `
+		<div class="main-block half-width no-min-height" id="start">
+			<p class="sub-block full-width no-vert-padding">Surreality Check</p>
+			<p class="sub-block full-width greyed-out no-vert-padding">videogame</p>
+			<p>Surreality Check is the first project by my company, <a href="https://absurdityinteractive.net" class="highlighted">Absurdity; Interactive.</a> 
+				I was responsible for about half the code, handling the implementation of specific features whilst leaving the big picture architecture to another 
+				programmer on the team. 
+				<a href="SRC.html" class="centered highlighted">More about Surreality Check...</a>
+			</p>
+		</div>
+
+		<div class="main-block half-width no-min-height">
+			<p class="sub-block full-width no-vert-padding">Alone</p>
+			<p class="sub-block full-width greyed-out no-vert-padding">videogame</p>
+			<p>A solo project where I was, among other things, responsible for all of the code. 
+				<a href="ALN.html" class="centered highlighted">More about Alone...</a>
+			</p>
+		</div>
+
+		<div class="main-block half-width no-min-height">
+			<p class="sub-block full-width no-vert-padding">Change AutoParser</p>
+			<p class="sub-block full-width no-vert-padding greyed-out">corporate automation</p>
+			<p>The AutoParser was an initiative I undertook while working as an Outbound B2B sales representative for Marktplaats through Change-CX. </br></br>
+				I noticed it took upwards of 21 clicks and 12 mouse movements to gather user data, which was needed for each call we made. This added up 
+				to major employee fatigue and lower productivity. </br></br>
+				Using python I whipped up a small always-on-top window that brought clicks down to 5 per call, with 4 mouse movements. This brought
+				my own calls-per-day average up from 23 to 44. Due to obvious security concerns, I unfortunately no longer have access to the code or 
+				documentation, but upon request I could hand over references still employed at <a href="https://change-cx.com/" class="centered highlighted">Change-CX</a> 
+				to confirm the effectiveness of this program.
+			</p>
+		</div>
+
 		<div class="banner thin centered even-spaced wrap-overflow">
-			<p class="greyed-out">~ code ~</p>
+			<a class="greyed-out" style="line-height:1;" href="#categoryButtons">
+				</br></br></br>
+				~ back to top ~
+			</a>
 		</div>
 	`,
 
 	"interactiveselected"	: `
+		<div class="main-block half-width no-min-height" id="start">
+			<p class="sub-block full-width no-vert-padding">Surreality Check</p>
+			<p class="sub-block full-width greyed-out no-vert-padding">videogame</p>
+			<p>Surreality Check is the first project by my company, <a href="https://absurdityinteractive.net" class="highlighted">Absurdity; Interactive.</a> 
+				I cover this under "music" too. The interactivity takes a bit longer to explain, so I'd invite you to  
+				<a href="SRC.html" class="centered highlighted">check out its sidepage.</a>
+			</p>
+		</div>
+
+		<div class="main-block half-width no-min-height">
+			<p class="sub-block full-width no-vert-padding">Alone</p>
+			<p class="sub-block full-width greyed-out no-vert-padding">videogame</p>
+			<p>A solo project with some simple interactive music. This is as basic as vertical density reduction to make a player feel increasingly... Well, ya know. </br>
+				<a href="ALN.html" class="centered highlighted">More about Alone...</a>
+			</p>
+		</div>
+
 		<div class="banner thin centered even-spaced wrap-overflow">
-			<p class="greyed-out">~ interactive audio ~</p>
+			<a class="greyed-out" style="line-height:1;" href="#categoryButtons">
+				</br></br></br>
+				~ back to top ~
+			</a>
 		</div>
 	`,
 
 	"liveselected"			: `
+		<div class="main-block half-width no-min-height" id="start">
+			<p class="sub-block full-width no-vert-padding">Limbus</p>
+			<p class="sub-block full-width greyed-out no-vert-padding">theater</p>
+			<p>A ten-minute short play, for which I helped to compose, record, and produce the music. I also helped set up all equipment and manned the audio booth day-of.
+				<a href="LIM.html" class="centered highlighted">More about Limbus...</a>
+			</p>
+		</div>
+
+		<div class="main-block half-width no-min-height">
+			<p class="sub-block full-width no-vert-padding">All the Isles of Europe</p>
+			<p class="sub-block full-width greyed-out no-vert-padding">theater</p>
+			<p>An hour-long play about national identity, inclusion and exclusion, and the unique place borders play in European countries.</br>
+				<a href="AIE.html" class="centered highlighted">More about All the Isles of Europe...</a>
+			</p>
+		</div>
+
 		<div class="banner thin centered even-spaced wrap-overflow">
-			<p class="greyed-out">~ live audio ~</p>
+			<a class="greyed-out" style="line-height:1;" href="#categoryButtons">
+				</br></br></br>
+				~ back to top ~
+			</a>
 		</div>
 	`
 };
@@ -171,4 +258,6 @@ function categoryClicked(prompt) {
 			field.innerHTML = selectableNodes[idList[i]];
 		}
 	}
+
+	window.location.href = "#start";
 }
