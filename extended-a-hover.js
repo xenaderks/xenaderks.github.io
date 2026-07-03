@@ -1,4 +1,40 @@
-const groupButtons = document.getElementsByClassName("greyed-out");
+// // START custom audio control styling START
+// import lottieWeb from 'https://esm.sh/lottie-web';
+
+// const playIconContainer = document.getElementById('play-icon');
+// let state = 'play';
+
+// const animation = lottieWeb.loadAnimation({
+//   container: playIconContainer,
+//   path: 'https://maxst.icons8.com/vue-static/landings/animated-icons/icons/pause/pause.json',
+//   renderer: 'svg',
+//   loop: false,
+//   autoplay: false,
+//   name: "Demo Animation",
+// });
+
+// animation.goToAndStop(14, true);
+
+// playIconContainer.addEventListener('click', () => {
+//     if(state === 'play') {
+//         animation.playSegments([14, 27], true);
+//         state = 'pause';
+//     } else {
+//         animation.playSegments([0, 14], true);
+//         state = 'play';
+//     }
+// });
+// // END custom audio control styling END
+
+
+
+
+
+let groupButtons = document.getElementsByClassName("greyed-out");
+var groupArray = [];
+for(let i = 0; i < groupButtons.length; i++){
+	groupArray.push(groupButtons[i]);
+}
 let idList = ["musicselected", "codeselected", "interactiveselected", "liveselected"];
 let selectableNodes = {
 	"musicselected"			: `
@@ -222,24 +258,37 @@ let selectableNodes = {
 	`
 };
 
-console.log(groupButtons);
+// take out greyed out fields that aren't in the idList. This is inefficient, but I was curious
+// how the filter function worked in js so I did it anyway. Shouldn't cause noticable load
+// delay anyway.
+groupArray = groupArray.filter((el) => {
+	let tempIdList = el.id.split(" ");
+	for(let n = 0; n < 4; n++) {
+		console.log(el, el.id);
+		if (tempIdList.includes(idList[n])) {
+			return(true);
+		}
+	} // implicit else
+	return(false);
+});
 
 
 // set up some stuff with the categories
 for(let i=0; i < 4; i++) {
 	
 	// connect each parent so that its children are highlighted when it's hovered.
-	let parentElem = groupButtons[i].parentElement;
+	let parentElem = groupArray[i].parentElement;
+	
 	parentElem.addEventListener(
 		"mouseenter", 
 		(event) => {
-			groupButtons[i].style.color = "white";
+			groupArray[i].style.color = "white";
 		}
 	);
 	parentElem.addEventListener(
 		"mouseleave", 
 		(event) => {
-			groupButtons[i].style.color = "grey";
+			groupArray[i].style.color = "grey";
 		}
 	);
 	

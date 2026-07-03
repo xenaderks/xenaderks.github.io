@@ -17,6 +17,9 @@ function place_image() {
 	
 	// always move image to 15% windowwidth offsetLeft.
 	let el_offset = pix_vw*15 - (el.offsetWidth / 2);
+	if (el_offset > 0) {
+		el_offset = 0;
+	}
 	el.style.left = String(el_offset) + "px";
 }
 

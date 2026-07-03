@@ -45,6 +45,8 @@
 					<script src="buttonFuncs.js"></script>
 				</div>
 				<p class="thin centered">
+					<i class="greyed-out">This site, including all featured text and art, was created without the use of AI.</i>
+					</br>
 					<b>about me — </b>
 					Over the past decade I've completed my Ba. in Music & Technology at the University of the Arts Utrecht (HKU).
 					I've transitioned my classes into a burgeoning videogame company for which I provide audio and programming, 
@@ -53,107 +55,11 @@
 					engaging pieces of multimedia artwork. 
 				</p>
 				<div class="banner thin centered even-spaced wrap-overflow" id="categoryButtons">
-					<!-- <div 
-						class="sub-block"
-					>
-						<a href="SRC.html" class="full-width half-height">
-							Surreality Check
-							<p class="greyed-out">music | code</p>
-						</a>
-					</div>
-					<div 
-						class="sub-block"
-					>
-						<a href="C&M.html" class="full-width half-height">
-							Cat & Mice
-							<p class="greyed-out">composition</p>
-						</a>
-					</div>
-					<div 
-						class="sub-block"
-					>
-						<a href="TJW.html" class="full-width half-height">
-							The Jabberwock
-							<p class="greyed-out">sound design</p>
-						</a>
-					</div>
-					<div 
-						class="sub-block"
-					>
-						<a href="X.html" class="full-width half-height">
-							01011000
-							<p class="greyed-out">music | theater</p>
-						</a>
-					</div>
-					<div 
-						class="sub-block music theater"
-					>
-						<a href="LIM.html">
-							Limbus
-							<p class="greyed-out">music | theater</p>
-						</a>
-					</div>
-					<div 
-						class="sub-block music"
-					>
-						<a href="COG.html">
-							Cogs
-							<p class="greyed-out">composition</p>
-						</a>
-					</div>
-					<div class="sub-block music theater">
-						<a href="KAS.html">
-							Kasko
-							<p class="greyed-out">music | theater</p>
-						</a>
-					</div>
-					<div class="sub-block music">
-						<a href="BAW.html">
-							Beasts Awakening
-							<p class="greyed-out">composition</p>
-						</a>
-					</div>
-					<div class="sub-block music game">
-						<a href="ZOR.html">
-							Zorpon
-							<p class="greyed-out">game music</p>
-						</a>
-					</div>
-					<div class="sub-block music game">
-						<a href="TUW.html">
-							The Unbearable Well
-							<p class="greyed-out">game music</p>
-						</a>
-					</div>
-					<div class="sub-block music game sound">
-						<a href="BRG.html">
-							Bridge Game
-							<p class="greyed-out">sound design</p>
-						</a>
-					</div>
-					<div class="sub-block music code game sound">
-						<a href="ALN.html">
-							Alone
-							<p class="greyed-out">solo development</p>
-						</a>
-					</div>
-					<div class="sub-block music game">
-						<a href="UGG.html">
-							Unnamed Ghost Game
-							<p class="greyed-out">rhythm game</p>
-						</a>
-					</div>
-					<div class="sub-block music game">
-						<a href="MYS.html">
-							Internship
-							<p class="greyed-out">game composition</p>
-						</a>
-					</div> -->
 					<div class="sub-block full-width border-sides" id="Music">
 						<p class="false-a">
 							Music
 						</p>
-						<a class="greyed-out" >
+						<a class="greyed-out" id="musicselected">
 							standalone tracks, or music for projects without strict requirements
 						</a>
 					</div></br>
@@ -161,7 +67,7 @@
 						<p class="false-a">
 							Code
 						</p>
-						<a class="greyed-out">
+						<a class="greyed-out" id="codeselected">
 							projects I had a hand in coding/programming
 						</a>
 					</div></br>
@@ -169,7 +75,7 @@
 						<p class="false-a">
 							Interactive Audio
 						</p>
-						<a class="greyed-out">
+						<a class="greyed-out" id="interactiveselected">
 							audio and sound with a non-linear aspect
 						</a>
 					</div></br>
@@ -177,7 +83,7 @@
 						<p class="false-a">
 							Live Audio
 						</p>
-						<a class="greyed-out">
+						<a class="greyed-out" id="liveselected">
 							audio implementation for live settings
 						</a>
 					</div>
